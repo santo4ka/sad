@@ -1,0 +1,209 @@
+/* Основные стили */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+/* Градиенты (по запросу пользователя) */
+.bg-gradient-custom {
+    background: linear-gradient(135deg, #1e7e34 0%, #c3dd24 100%) !important;
+    border: none;
+}
+
+.text-gradient-custom {
+    background: linear-gradient(135deg, #1e7e34 0%, #99b300 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Навигация */
+.navbar-custom {
+    background: linear-gradient(135deg, #1e7e34 0%, #c3dd24 100%) !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.navbar-custom .navbar-brand,
+.navbar-custom .nav-link {
+    color: white !important;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.navbar-custom .nav-link:hover {
+    color: #f8f9fa !important;
+    opacity: 0.9;
+}
+
+/* Герой секция */
+.hero-section {
+    background-color: #f8f9fa;
+    padding: 60px 0;
+}
+
+.hero-icon {
+    font-size: 4rem;
+    color: #28a745;
+    margin: 20px;
+}
+
+.text-green {
+    color: #28a745 !important;
+}
+
+/* Карточки */
+.card {
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-header {
+    background: linear-gradient(135deg, #1e7e34 0%, #c3dd24 100%) !important;
+    color: white !important;
+    border: none;
+}
+
+/* Кнопки */
+.btn-success-gradient {
+    background: linear-gradient(135deg, #1e7e34 0%, #c3dd24 100%);
+    border: none;
+    border-radius: 20px;
+    padding: 10px 20px;
+    color: white;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-success-gradient:hover {
+    background: linear-gradient(135deg, #155d27 0%, #a4bb1e 100%);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* Формы */
+.form-control,
+.form-select {
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+}
+
+.form-control:focus,
+.form-select:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+/* Результаты */
+.result-card {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-left: 4px solid #28a745;
+}
+
+.result-card.chemical {
+    border-left-color: #dc3545;
+}
+
+.result-card.biological {
+    border-left-color: #20c997;
+}
+
+.result-title {
+    color: #28a745;
+    font-weight: 600;
+}
+
+.result-products {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    margin: 15px 0;
+}
+
+.result-schedule {
+    background: #d4edda;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 3px solid #28a745;
+}
+
+/* Каталог растений */
+.plant-filter-btn {
+    margin: 5px;
+    border-radius: 20px;
+    padding: 8px 20px;
+    border: 2px solid transparent;
+    background: #f8f9fa;
+    color: #495057;
+    transition: all 0.3s;
+}
+
+.plant-filter-btn:hover {
+    background: #e9ecef;
+}
+
+.plant-filter-btn.active {
+    background: linear-gradient(135deg, #1e7e34 0%, #c3dd24 100%);
+    color: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+.plant-icon-wrapper {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+    border-radius: 50%;
+    width: 80px;
+    margin: 0 auto 15px;
+}
+
+.plant-icon {
+    font-size: 2.5rem;
+}
+
+.category-trees .plant-icon { color: #8bc34a; }
+.category-grapes .plant-icon { color: #9c27b0; }
+.category-shrubs .plant-icon { color: #ff9800; }
+.category-vegetables .plant-icon { color: #f44336; }
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .hero-section {
+        text-align: center;
+        padding: 40px 0;
+    }
+
+    .hero-icon {
+        font-size: 3rem;
+    }
+
+    .display-4 {
+        font-size: 2rem;
+    }
+}
+
+/* Скролл к секциям */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Утилиты */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
