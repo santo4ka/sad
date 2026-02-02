@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Садовод Помощник - Ваш гид по саду</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Навигация с градиентом -->
+    <nav class="navbar navbar-expand-lg navbar-custom sticky-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#">
+                <i class="fas fa-leaf"></i> Садовод Помощник
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">Главная</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#catalog">Каталог растений</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#diagnosis">Диагностика</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Главный экран -->
+        <section id="home" class="hero-section">
+            <div class="container">
+                <div class="row align-items-center min-vh-50">
+                    <div class="col-lg-6 order-lg-1 order-2">
+                        <h1 class="display-4 fw-bold mb-4">
+                            <span class="text-gradient-custom">Здоровый сад</span> — богатый урожай
+                        </h1>
+                        <p class="lead mb-4 text-muted">
+                            Полный справочник садовых культур и умный помощник по защите от болезней и вредителей.
+                            Все основные виды фруктов, ягод и овощей в одном месте.
+                        </p>
+                        <div class="d-flex gap-3">
+                            <button class="btn btn-success-gradient btn-lg shadow" onclick="scrollToSection('catalog')">
+                                <i class="fas fa-book-open"></i> Открыть каталог
+                            </button>
+                            <button class="btn btn-outline-success btn-lg" onclick="scrollToSection('diagnosis')">
+                                <i class="fas fa-stethoscope"></i> Диагностика
+                            </button>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 order-lg-2 order-1 text-center mb-4 mb-lg-0">
+                        <div class="position-relative">
+                            <i class="fas fa-apple-alt text-gradient-custom" style="font-size: 10rem; opacity: 0.8;"></i>
+                            <i class="fas fa-carrot text-warning position-absolute bottom-0 start-0" style="font-size: 5rem;"></i>
+                            <i class="fas fa-leaf text-success position-absolute top-0 end-0" style="font-size: 4rem;"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Каталог Растений (Новая секция) -->
+        <section id="catalog" class="py-5 bg-white">
+            <div class="container" id="catalog-container">
+                <div class="row mb-5">
+                    <div class="col-12 text-center">
+                        <h2 class="fw-bold mb-3"><i class="fas fa-seedling text-success"></i> Основные культуры</h2>
+                        <p class="text-muted">Мы собрали самые популярные растения, которые выращивают на приусадебных участках.</p>
+                        
+                        <!-- Фильтры -->
+                        <div id="catalog-filters" class="d-flex justify-content-center flex-wrap mt-4">
+                            <!-- Кнопки будут здесь -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Сетка растений -->
+                <div class="row" id="catalog-grid">
+                    <!-- Карточки будут здесь -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Форма диагностики -->
+        <section id="diagnosis" class="py-5 bg-light">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="card shadow-lg border-0">
+                            <div class="card-header py-3">
+                                <h3 class="card-title mb-0 text-center">
+                                    <i class="fas fa-user-md"></i> Диагностика заболеваний
+                                </h3>
+                            </div>
+                            <div class="card-body p-4">
+                                <p class="text-center text-muted mb-4">
+                                    Если ваше растение заболело, выберите его из списка и опишите симптомы.
+                                </p>
+                                <form id="diagnosisForm">
+                                    <div class="mb-3">
+                                        <label for="plantName" class="form-label fw-bold">Растение</label>
+                                        <select class="form-select" id="plantName" required>
+                                            <option value="">Выберите растение...</option>
+                                            <!-- Заполняется JS -->
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="season" class="form-label fw-bold">Текущий месяц</label>
+                                        <select class="form-select" id="season" required>
+                                            <option value="">Выберите месяц...</option>
+                                            <option value="январь">Январь</option>
+                                            <option value="февраль">Февраль</option>
+                                            <option value="март">Март</option>
+                                            <option value="апрель">Апрель</option>
+                                            <option value="май">Май</option>
+                                            <option value="июнь">Июнь</option>
+                                            <option value="июль">Июль</option>
+                                            <option value="август">Август</option>
+                                            <option value="сентябрь">Сентябрь</option>
+                                            <option value="октябрь">Октябрь</option>
+                                            <option value="ноябрь">Ноябрь</option>
+                                            <option value="декабрь">Декабрь</option>
+                                        </select>
+                                    </div>
+                                    
+                                    <div class="mb-3">
+                                        <label for="problem" class="form-label fw-bold">Симптомы</label>
+                                        <textarea class="form-control" id="problem" rows="3" 
+                                            placeholder="Например: черные пятна на листьях, скручивание верхушек, белый налет..." required></textarea>
+                                    </div>
+                                    
+                                    <div class="mb-4">
+                                        <label class="form-label fw-bold">Тип лечения</label>
+                                        <div class="d-flex gap-3">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="methodType" id="both" value="оба" checked>
+                                                <label class="form-check-label" for="both">Все методы</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="methodType" id="chemical" value="химический">
+                                                <label class="form-check-label" for="chemical">Химия (Быстро)</label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="radio" name="methodType" id="biological" value="биологический">
+                                                <label class="form-check-label" for="biological">Био (Эко)</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="d-grid">
+                                        <button type="submit" class="btn btn-success-gradient btn-lg">
+                                            Получить рекомендации
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Результаты -->
+        <section id="results" class="py-5" style="display: none;">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h2 class="text-center mb-5">
+                            <i class="fas fa-clipboard-check text-success"></i> Результаты анализа
+                        </h2>
+                    </div>
+                </div>
+                <div id="resultsContainer" class="row">
+                    <!-- Результаты JS -->
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Подвал -->
+    <footer class="bg-dark text-white py-4 mt-auto">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <h5 class="mb-0"><i class="fas fa-leaf"></i> Садовод Помощник</h5>
+                    <small class="text-white-50">Энциклопедия и врач для вашего сада</small>
+                </div>
+                <div class="col-md-6 text-center text-md-end mt-3 mt-md-0">
+                    <p class="mb-0">&copy; 2026 Все права защищены</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Модальное окно -->
+    <div class="modal fade" id="treatmentModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-gradient-custom text-white">
+                    <h5 class="modal-title" id="treatmentModalTitle">Детали</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body p-4" id="treatmentModalBody">
+                    <!-- Content JS -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Данные и логика -->
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/catalog.js"></script>
+</body>
+</html>
