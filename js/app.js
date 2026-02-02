@@ -55,7 +55,47 @@ function handleDiagnosisSubmit(event) {
         problem: document.getElementById('problem').value.toLowerCase(),
         methodType: document.querySelector('input[name="methodType"]:checked').value
     };
-    
+
+  function renderResults(diagnoses, methodType) {
+  const container = document.getElementById('diagnosisResult');
+
+  if (!diagnoses.length) {
+    container.innerHTML = `
+      <p class="no-result">
+        🤷‍♂️ Не удалось определить проблему. Попробуйте описать симптомы подробнее.
+      </p>
+    `;
+    return;
+  }
+
+  container.innerHTML = diagnoses.map(result => {
+    const { disease, probability } = result;
+
+    const treatments = getTreatmentsForDisease(disease.id, methodType);
+
+    return `
+      <div class="diagnosis-card">
+        <h3>${disease.name}</h3>
+        <p><strong>Вероятность:</strong> ${probability}%</p>
+        <p><strong>Симптомы:</strong> ${disease.symptoms.join(', ')}</p>
+
+        <div class="treatments">
+          <strong>Лечение:</strong>
+          <ul>
+            ${treatments.map(t => `
+              <li>
+                <b>${t.name}</b> (${t.method_type})<br>
+                ${t.products}<br>
+                <small>${t.treatment_schedule}</small>
+              </li>
+            `).join('')}
+          </ul>
+        </div>
+      </div>
+    `;
+  }).join('');
+}
+
     // Валидация
     if (!formData.plantId || !formData.season || !formData.problem) {
         alert('Пожалуйста, заполните все обязательные поля');
