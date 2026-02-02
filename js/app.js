@@ -48,7 +48,8 @@ function renderCatalogGrid(plants) {
 
     grid.innerHTML = plants.map(plant => `
         <div class="col-md-4 col-lg-3 mb-4">
-            <div class="card h-100 text-center p-3">
+            <div class="card h-100 text-center p-3 plant-card"
+                 data-plant-id="${plant.id}">
                 <div class="plant-icon-wrapper category-${plant.category}">
                     <i class="fas fa-seedling plant-icon"></i>
                 </div>
@@ -57,7 +58,19 @@ function renderCatalogGrid(plants) {
             </div>
         </div>
     `).join('');
+
+    // 👇 ВОТ ЭТОГО РАНЬШЕ НЕ БЫЛО
+    document.querySelectorAll('.plant-card').forEach(card => {
+        card.addEventListener('click', () => {
+            const plantId = card.dataset.plantId;
+            const select = document.getElementById('plantName');
+
+            select.value = plantId;
+            scrollToSection('diagnosis');
+        });
+    });
 }
+
 
 /* ===== Форма диагностики ===== */
 
