@@ -207,3 +207,28 @@ html {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
+.diagnosis-result {
+  margin-top: 20px;
+}
+
+.diagnosis-card {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  background: #f9fff7;
+}
+
+.diagnosis-card h3 {
+  margin-top: 0;
+  color: #2e7d32;
+}
+
+.treatments ul {
+  padding-left: 20px;
+}
+
+.no-result {
+  color: #777;
+  font-style: italic;
+}
