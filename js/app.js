@@ -1,7 +1,20 @@
-document.addEventListener('DOMContentLoaded', function() {
-    setupEventListeners();
-    populatePlantSelect(); // New function to populate select from data
+document.getElementById('diagnosisForm').addEventListener('submit', e => {
+  e.preventDefault();
+
+  const plantId = document.getElementById('plantName').value;
+  const month = document.getElementById('season').value;
+  const problemText = document.getElementById('problem').value;
+  const methodType = document.querySelector('input[name="methodType"]:checked').value;
+
+  const diagnoses = diagnosePlant({
+    plantId,
+    month,
+    problemText
+  });
+
+  renderResults(diagnoses, methodType);
 });
+
 
 // Настройка обработчиков событий
 function setupEventListeners() {
