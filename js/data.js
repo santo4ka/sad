@@ -42,65 +42,77 @@ const plantsData = [
     { id: 'greens', name: 'Зелень', category: 'vegetables', description: 'Укроп, петрушка, салаты, базилик.' }
 ];
 
-// База данных болезней
+
+// === Болезни и вредители ===
 const diseasesData = [
-    {
-        id: 'scab',
-        name: 'Парша',
-        type: 'болезнь',
-        symptoms: 'Темные пятна на листьях и плодах, деформация плодов.',
-        season: ['апрель', 'май', 'июнь'],
-        affected_plants: ['apple', 'pear']
-    },
-    {
-        id: 'aphid',
-        name: 'Тля',
-        type: 'вредитель',
-        symptoms: 'Листья скручиваются, липкий налет, мелкие насекомые.',
-        season: ['май', 'июнь', 'июль'],
-        affected_plants: ['apple', 'plum', 'cherry', 'currant_black', 'rose', 'cucumber', 'pepper']
-    },
-    {
-        id: 'blight',
-        name: 'Фитофтора',
-        type: 'болезнь',
-        symptoms: 'Бурые пятна на листьях и плодах, гниль.',
-        season: ['июль', 'август'],
-        affected_plants: ['tomato', 'potato']
-    },
-    {
-        id: 'powdery_mildew',
-        name: 'Мучнистая роса',
-        type: 'болезнь',
-        symptoms: 'Белый мучнистый налет на листьях и побегах.',
-        season: ['июнь', 'июль', 'август'],
-        affected_plants: ['gooseberry', 'currant_black', 'cucumber', 'zucchini', 'apple']
-    },
-    {
-        id: 'spider_mite',
-        name: 'Паутинный клещ',
-        type: 'вредитель',
-        symptoms: 'Мелкие светлые точки на листьях, тонкая паутинка.',
-        season: ['июнь', 'июль', 'август'],
-        affected_plants: ['cucumber', 'eggplant', 'pepper']
-    },
-    {
-        id: 'moniliosis',
-        name: 'Монилиоз',
-        type: 'болезнь',
-        symptoms: 'Усыхание ветвей (как ожог), гниль плодов с серыми подушечками.',
-        season: ['май', 'июнь', 'август'],
-        affected_plants: ['cherry', 'sweet_cherry', 'plum', 'apricot']
-    },
-    {
-        id: 'colorado_beetle',
-        name: 'Колорадский жук',
-        type: 'вредитель',
-        symptoms: 'Жуки и личинки объедают листья.',
-        season: ['июнь', 'июль'],
-        affected_plants: ['potato', 'eggplant', 'tomato']
-    }
+  {
+    id: 'scab',
+    name: 'Парша',
+    type: 'болезнь',
+    symptoms: [
+      'темные пятна',
+      'черные пятна',
+      'пятна на листьях',
+      'пятна на плодах',
+      'трещины на плодах'
+    ],
+    season: ['апрель', 'май', 'июнь'],
+    affected_plants: ['apple', 'pear']
+  },
+  {
+    id: 'aphid',
+    name: 'Тля',
+    type: 'вредитель',
+    symptoms: [
+      'листья скручиваются',
+      'скручивание листьев',
+      'липкий налет',
+      'мелкие насекомые'
+    ],
+    season: ['май', 'июнь', 'июль'],
+    affected_plants: ['apple', 'plum', 'cherry', 'currant_black', 'cucumber', 'pepper']
+  },
+  {
+    id: 'powdery_mildew',
+    name: 'Мучнистая роса',
+    type: 'болезнь',
+    symptoms: [
+      'белый налет',
+      'мучнистый налет',
+      'белый порошок',
+      'побелели листья'
+    ],
+    season: ['июнь', 'июль', 'август'],
+    affected_plants: ['gooseberry', 'currant_black', 'cucumber', 'zucchini', 'apple']
+  },
+  {
+    id: 'blight',
+    name: 'Фитофтора',
+    type: 'болезнь',
+    symptoms: [
+      'бурые пятна',
+      'коричневые пятна',
+      'гниль плодов',
+      'почернение листьев'
+    ],
+    season: ['июль', 'август'],
+    affected_plants: ['tomato', 'potato']
+  },
+  {
+    id: 'spider_mite',
+    name: 'Паутинный клещ',
+    type: 'вредитель',
+    symptoms: [
+      'паутинка',
+      'мелкие светлые точки',
+      'листья светлеют',
+      'сухие листья'
+    ],
+    season: ['июнь', 'июль', 'август'],
+    affected_plants: ['cucumber', 'eggplant', 'pepper']
+  }
 ];
+
 
 // База данных методов лечения
 const treatmentsData = [
